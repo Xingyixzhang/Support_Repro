@@ -4,4 +4,4 @@
 ####  - [Health checks in ASP.NET Core | Microsoft Docs](https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/health-checks?view=aspnetcore-5.0)
 
 ### Web.Config File Structure Overview
-![image](https://user-images.githubusercontent.com/59896882/114816109-569b9e00-9d6c-11eb-9e3c-82cb43673ad2.png)
+<img src="https://user-images.githubusercontent.com/59896882/114816109-569b9e00-9d6c-11eb-9e3c-82cb43673ad2.png" width="700" height="1000" />
