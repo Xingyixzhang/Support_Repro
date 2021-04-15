@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "storage1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Storage/storageAccounts/storageaccounttestw8a55",
+      "type": "storage.azure",
+      "connectionId": "Storage_ConnectionString",
+      "secretStore": "AzureAppSettings"
+    }
+  }
+}
