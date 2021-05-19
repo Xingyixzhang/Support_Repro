@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "applicationinsights": "^1.8.10"
+  }
+}
