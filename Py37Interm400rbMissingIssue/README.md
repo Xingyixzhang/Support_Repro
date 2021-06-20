@@ -67,7 +67,7 @@ for number in range(total_requests):
 print(f"Total Requests Count: {total_requests}")
 print(f"Failed Requests Count: {number_of_400}")
 ```
-![Failed vs Successful Request Body print](https://github.com/Xingyixzhang/Support_Repro/blob/main/Py37Interm400rbMissingIssue/images/failed_message_vs_successful_body.png)
+![Failed vs Successful Request Body print](https://github.com/Xingyixzhang/Support_Repro/blob/main/Py37Interm400rbMissingIssue/images/failed_body_vs_successful.png)
 
 ### Additional Notes
 - This issue seemed to be related to chunked encoding based on Network Trace / TCP dumps analysis.
