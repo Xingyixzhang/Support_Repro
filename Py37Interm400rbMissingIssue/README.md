@@ -7,20 +7,20 @@ Python 3.7 HTTP function intermittently fail with 400 Bad Request "HTTP request 
 **----- Hardcoded Valid JSON Request Body for all tests -----**
 ```JSON
 body = {
-        "name": "xCloud-e73333a5-c1bc-42b1-bb54-e64c0b6cd542-773",
-        "description": "Members of this group have permissions with AstroRole_SelfAssigned role \"AccountManager\" (773) in xCloud account \"oli-test-non-prod-5\" (e73333a5-c1bc-42b1-bb54-e64c0b6cd542)",
+        "name": "xxxxxxxxxxxxxxxxxx",
+        "description": "xxxxxxxxxxxxxx \"AccountManager\" (773) in xCloud account \"prod_account\" (xxxx-xxxx-xxxxxx)",
         "ownerIDs": [
-            "8408c18e-3705-47f6-abd3-222aa8448170",
-            "095b32af-1ca7-4ff4-a01e-1d8ad3dccb04"
+            "8408xxxx-xxxx-xxxxxx",
+            "095bxxxx-xxxx-xxxxxx"
         ],
         "memberIDs": [
-            "7a96a927-e7e4-4dfc-9079-114f9b55e92f"
+            "7a96xxxx-xxxx-xxxxxx"
         ],
         "comcast_xcloudroles": {
-            "accountId": "e73333a5-c1bc-42b1-bb54-e64c0b6cd542",
-            "roleId": 773,
+            "accountId": "e733xxxx-xxxx-xxxxxx",
+            "roleId": 1001,
             "roleName": "AccountManager",
-            "roleType": "AstroRole_SelfAssigned",
+            "roleType": "SelfAssigned",
             "environment": "PROD"
         }
     }
