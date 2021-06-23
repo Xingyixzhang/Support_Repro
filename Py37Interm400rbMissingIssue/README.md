@@ -69,6 +69,33 @@ print(f"Failed Requests Count: {number_of_400}")
 ```
 ![Failed vs Successful Request Body print](https://github.com/Xingyixzhang/Support_Repro/blob/main/Py37Interm400rbMissingIssue/images/failed_body_vs_successful.png)
 
+**----- Looking at Transfer Encoding for both successful and failed responses/ requests -----**
+```py
+url = 'https://py37intermRBmissingRepro.azurewebsites.net/api/HttpTrigger1'
+
+total_requests = 10
+number_of_400 = 0
+
+for number in range(total_requests):
+    # request = requests.get(url)
+    response = requests.post(url, data=gen())
+    status = response.status_code
+    if status == 400:
+        number_of_400 += 1
+
+    print(f'Response Code: {response.status_code}')
+    print(f"Transfer Encoding: {response.headers['transfer-encoding']}\n")
+
+    # print(f'headers: {request.headers.keys()}')
+    # print(f"Transfer Encoding: {request.headers['transfer-encoding']}\n")
+    # print(f'body: {response.text}')
+
+print(f"Total Requests Count: {total_requests}")
+print(f"Failed Requests Count: {number_of_400}")
+```
+
+![Transfer Encoding]()
+
 ### Additional Notes
 - This issue seemed to be related to chunked encoding based on Network Trace / TCP dumps analysis.
 - [Reported] For the same code, this issue only started happening on and after Early April 2021.
