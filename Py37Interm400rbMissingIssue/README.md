@@ -94,7 +94,7 @@ print(f"Total Requests Count: {total_requests}")
 print(f"Failed Requests Count: {number_of_400}")
 ```
 
-![Transfer Encoding]()
+![Transfer Encoding](https://github.com/Xingyixzhang/Support_Repro/blob/main/Py37Interm400rbMissingIssue/images/TransferEncoding.png)
 
 ### Additional Notes
 - This issue seemed to be related to chunked encoding based on Network Trace / TCP dumps analysis.
