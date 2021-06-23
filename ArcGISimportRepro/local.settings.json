@@ -1,0 +1,9 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=agolmoduleimportrepro;AccountKey=jt9nkIZMhNjHLNP9mw3jx5jErsnP8Hjj06/4FCAGeFpflKgacVyiBTSq6LNpVvi1kDSnK3iFqSkZ7CQAA2IZjg==;EndpointSuffix=core.windows.net",
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "agol_username": "Xingyi_Zhang_LearnArcGIS",
+    "agol_password": "arcgisP@$$2021"
+  }
+}
