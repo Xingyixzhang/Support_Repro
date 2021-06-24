@@ -2,6 +2,7 @@
 Python 3.7 HTTP function intermittently fail with 400 Bad Request "HTTP request does not contain valid JSON data", even with the same valid JSON request body.
 
 **Testing Function App**: [py37intermRBmissingRepro](https://ms.portal.azure.com/#@microsoft.onmicrosoft.com/resource/subscriptions/83e0d97e-09ce-4ef1-b908-b07072b805e3/resourceGroups/EPlinux/providers/Microsoft.Web/sites/py37intermRBmissingRepro/appServices)
+---
 
 ### Demo
 **----- Hardcoded Valid JSON Request Body for all tests -----**
@@ -69,6 +70,9 @@ print(f"Failed Requests Count: {number_of_400}")
 ```
 ![Failed vs Successful Request Body print](https://github.com/Xingyixzhang/Support_Repro/blob/main/Py37Interm400rbMissingIssue/images/failed_body_vs_successful.png)
 
+---
+
+### Investigation In Progress
 **----- Looking at Transfer Encoding for both successful and failed responses/ requests -----**
 ```py
 url = 'https://py37intermRBmissingRepro.azurewebsites.net/api/HttpTrigger1'
@@ -138,6 +142,14 @@ Write-Host "Failed Requests Count: $number_of_400"
 **----- Tested on an equivalent app implemented in PowerShell 7 for 10 times, with Status Code display-----**
 
 ![PowerShell App Tests return 200's](https://github.com/Xingyixzhang/Support_Repro/blob/main/Py37Interm400rbMissingIssue/images/200SuccessWith10PSTests.png)
+
+**----- Few more testing with Python req methods indicated same request body intermittently became empty when hitting Python Function endpoint -----**
+
+**Successful Execution 200**
+![Success with Request Body](https://github.com/Xingyixzhang/Support_Repro/blob/main/Py37Interm400rbMissingIssue/images/Success_with_RequestBody.png)
+
+**Failed with 400: Empty Body**
+![Failed with empty body](https://github.com/Xingyixzhang/Support_Repro/blob/main/Py37Interm400rbMissingIssue/images/Failed_with_empty_body.png)
 
 ### Additional Notes
 - This issue seemed to be related to chunked encoding based on Network Trace / TCP dumps analysis.
