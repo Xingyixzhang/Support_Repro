@@ -135,6 +135,10 @@ Write-Host "Failed Requests Count: $number_of_400"
 
 ![PowerShell App Tests are all Successful](https://github.com/Xingyixzhang/Support_Repro/blob/main/Py37Interm400rbMissingIssue/images/PS7all_successful.png)
 
+**----- Tested on an equivalent app implemented in PowerShell 7 for 10 times, with Status Code display-----**
+
+![PowerShell App Tests return 200's](https://github.com/Xingyixzhang/Support_Repro/blob/main/Py37Interm400rbMissingIssue/images/200SuccessWith10PSTests.png)
+
 ### Additional Notes
 - This issue seemed to be related to chunked encoding based on Network Trace / TCP dumps analysis.
 - [Reported] For the same code, this issue only started happening on and after Early April 2021.
