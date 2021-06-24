@@ -141,6 +141,7 @@ Write-Host "Failed Requests Count: $number_of_400"
 
 ### Additional Notes
 - This issue seemed to be related to chunked encoding based on Network Trace / TCP dumps analysis.
+- 30+ tests with the same request body from Portal Test/Run seemed to be all Successful for both Python and PowerShell functions.
 - [Reported] For the same code, this issue only started happening on and after Early April 2021.
 
 ![Trace Comparison](https://github.com/Xingyixzhang/Support_Repro/blob/main/Py37Interm400rbMissingIssue/images/trace_comparison.png)
