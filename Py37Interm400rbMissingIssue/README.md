@@ -96,7 +96,7 @@ print(f"Failed Requests Count: {number_of_400}")
 
 ![Transfer Encoding](https://github.com/Xingyixzhang/Support_Repro/blob/main/Py37Interm400rbMissingIssue/images/TransferEncoding.png)
 
-**----- Tested on an equivalent app implemented in PowerShell 7 -----**
+**----- Tested on an equivalent app implemented in PowerShell 7 for 1000 times, ALL were SUCCESSFUL-----**
 ``` ps
 $body = @{
     'name' = 'xxxxxxxxxxxxxxxxxx'
@@ -133,8 +133,7 @@ Write-Host "Total Requests Count: $total_requests"
 Write-Host "Failed Requests Count: $number_of_400"
 ```
 
-Output is all Successful:
-
+![PowerShell App Tests are all Successful](https://github.com/Xingyixzhang/Support_Repro/blob/main/Py37Interm400rbMissingIssue/images/PS7all_successful.png)
 
 ### Additional Notes
 - This issue seemed to be related to chunked encoding based on Network Trace / TCP dumps analysis.
