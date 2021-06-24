@@ -70,9 +70,7 @@ print(f"Failed Requests Count: {number_of_400}")
 ```
 ![Failed vs Successful Request Body print](https://github.com/Xingyixzhang/Support_Repro/blob/main/Py37Interm400rbMissingIssue/images/failed_body_vs_successful.png)
 
----
 
-### Investigation In Progress
 **----- Looking at Transfer Encoding for both successful and failed responses/ requests -----**
 ```py
 url = 'https://py37intermRBmissingRepro.azurewebsites.net/api/HttpTrigger1'
@@ -100,6 +98,9 @@ print(f"Failed Requests Count: {number_of_400}")
 
 ![Transfer Encoding](https://github.com/Xingyixzhang/Support_Repro/blob/main/Py37Interm400rbMissingIssue/images/TransferEncoding.png)
 
+---
+
+### Investigation In Progress
 **----- Tested on an equivalent app implemented in PowerShell 7 for 1000 times, ALL were SUCCESSFUL-----**
 ``` ps
 $body = @{
