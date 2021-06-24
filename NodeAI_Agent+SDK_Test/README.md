@@ -30,3 +30,7 @@ SDK-Based Application Insights Resource: [node12AIsdkfuncApp-sec](https://ms.por
 ![Primary AI Third Test](https://github.com/Xingyixzhang/Support_Repro/blob/main/NodeAI_Agent%2BSDK_Test/images/Primary_AI_3.gif)
 #### Secondary AI:
 ![Secondary AI Third Test](https://github.com/Xingyixzhang/Support_Repro/blob/main/NodeAI_Agent%2BSDK_Test/images/Secondary_AI_3.gif)
+
+Fix for the customer:
+- Connecting to the secondary Application Insights Resource by connection string instead of instrument key.
+- Not so sure of why, since I am able to have successful workflow using Instrument Key in my repro.
