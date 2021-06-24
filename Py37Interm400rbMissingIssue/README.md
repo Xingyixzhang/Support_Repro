@@ -96,6 +96,46 @@ print(f"Failed Requests Count: {number_of_400}")
 
 ![Transfer Encoding](https://github.com/Xingyixzhang/Support_Repro/blob/main/Py37Interm400rbMissingIssue/images/TransferEncoding.png)
 
+**----- Tested on an equivalent app implemented in PowerShell 7 -----**
+``` ps
+$body = @{
+    'name' = 'xxxxxxxxxxxxxxxxxx'
+    'description' = 'xxxxxxxxxxxxxx'
+    "ownerID" = "8408xxxx-xxxx-xxxxxx"
+    "memberID" = "7a96xxxx-xxxx-xxxxxx"
+    "accountId" = "e733xxxx-xxxx-xxxxxx"
+    "roleId" = 1001
+    "roleName" = "AccountManager"
+    "roleType" = "SelfAssigned"
+    "environment" = "PROD"
+}
+
+$url = 'https://ps7intermrbmissingrepro.azurewebsites.net/api/httptrigger1'
+
+$total_requests = 1000
+$number_of_400 = 0
+
+for ($i = 0; $i -lt $total_requests; $i++){
+    $response = Invoke-WebRequest -Uri $url -Body $body -Method 'POST'
+
+    $status_code = $response.StatusCode
+    # $transfer_encoding = $response | Select-Object -Property TransferEncoding
+
+    if ($status_code -eq 400){
+        $number_of_400++
+    }
+
+    # Write-Host "Response Code: $status_code"
+    # Write-Host "Transfer Encoding: $transfer_encoding"
+}
+
+Write-Host "Total Requests Count: $total_requests"
+Write-Host "Failed Requests Count: $number_of_400"
+```
+
+Output is all Successful:
+
+
 ### Additional Notes
 - This issue seemed to be related to chunked encoding based on Network Trace / TCP dumps analysis.
 - [Reported] For the same code, this issue only started happening on and after Early April 2021.
