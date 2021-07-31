@@ -158,12 +158,12 @@ Write-Host "Failed Requests Count: $number_of_400"
 - [Reported] For the same code, this issue only started happening on and after Early April 2021.
 
 ![Trace Comparison](https://github.com/Xingyixzhang/Support_Repro/blob/main/Py37Interm400rbMissingIssue/images/trace_comparison.png)
+---
 
 ### Resolution / Workaround
 
 **working App Service (Web App)**: [py37intermRBmissingWebApp](https://ms.portal.azure.com/#@microsoft.onmicrosoft.com/resource/subscriptions/83e0d97e-09ce-4ef1-b908-b07072b805e3/resourceGroups/eplinux/providers/Microsoft.Web/sites/py37intermRBmissingWebApp/appServices)
 
-**Creation Steps**
 - Folloing [this doc](https://docs.microsoft.com/en-us/azure/app-service/quickstart-python?tabs=bash&pivots=python-framework-flask) and changed app.py code based on the http trigger in original concerning function app.
 
 ```cmd
@@ -190,7 +190,7 @@ You can launch the app at http://py37intermrbmissingwebapp.azurewebsites.net
 }
 ```
 
-- Testing with the same python program to send 2000 requests --> All Successful
+**----- Testing with the same python program to send 2000 requests --> All Successful -----**
 
 ```py
 url = 'https://py37intermrbmissingwebapp.azurewebsites.net'
