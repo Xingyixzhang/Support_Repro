@@ -1,10 +1,9 @@
-### Issue
+## Issue
 Python 3.7 HTTP function intermittently fail with 400 Bad Request "HTTP request does not contain valid JSON data", even with the same valid JSON request body.
 
 **Testing Function App**: [py37intermRBmissingRepro](https://ms.portal.azure.com/#@microsoft.onmicrosoft.com/resource/subscriptions/83e0d97e-09ce-4ef1-b908-b07072b805e3/resourceGroups/EPlinux/providers/Microsoft.Web/sites/py37intermRBmissingRepro/appServices)
----
 
-### Demo
+## Demo
 **----- Hardcoded Valid JSON Request Body for all tests -----**
 ```JSON
 body = {
@@ -158,11 +157,23 @@ Write-Host "Failed Requests Count: $number_of_400"
 - [Reported] For the same code, this issue only started happening on and after Early April 2021.
 
 ![Trace Comparison](https://github.com/Xingyixzhang/Support_Repro/blob/main/Py37Interm400rbMissingIssue/images/trace_comparison.png)
----
 
-### Resolution / Workaround
 
-**working App Service (Web App)**: [py37intermRBmissingWebApp](https://ms.portal.azure.com/#@microsoft.onmicrosoft.com/resource/subscriptions/83e0d97e-09ce-4ef1-b908-b07072b805e3/resourceGroups/eplinux/providers/Microsoft.Web/sites/py37intermRBmissingWebApp/appServices)
+## Resolution / Workaround
+
+### Root Cause Analysis
+
+The Python Worker is building on top of the function host, the protobuf protocol between the function host and worker does not support streaming --> this introduces a limitation that the worker is not able to view the full-scope of the body, resulting exception when try to parse a partial json.
+
+We’re not the first one to encounter this issue, [similar issue](https://github.com/psf/requests/issues/2950) was also raised in a Flask framework dependency.
+This indicates basically without the support from application server layer (e.g. uwsgi/gunicorn), the Flask framework is not able to support Chunked data.
+
+In order to support this scenario, streaming or buffering needs to be supported in function host beforehand, which means implementing [this feature](https://github.com/Azure/azure-functions-host/issues/4926) is a must.
+ 
+Since we don’t have plan for implementing this feature yet, our Product Team engineer recommended our customer to move onto App Service, which provides more controls over the application server layer. [Configure Linux Python apps - Azure App Service | Microsoft Docs](https://docs.microsoft.com/en-us/azure/app-service/configure-language-python#container-characteristics)
+
+
+**My working App Service (Web App)**: [py37intermRBmissingWebApp](https://ms.portal.azure.com/#@microsoft.onmicrosoft.com/resource/subscriptions/83e0d97e-09ce-4ef1-b908-b07072b805e3/resourceGroups/eplinux/providers/Microsoft.Web/sites/py37intermRBmissingWebApp/appServices)
 
 - Folloing [this doc](https://docs.microsoft.com/en-us/azure/app-service/quickstart-python?tabs=bash&pivots=python-framework-flask) and changed app.py code based on the http trigger in original concerning function app.
 
