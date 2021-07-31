@@ -158,3 +158,65 @@ Write-Host "Failed Requests Count: $number_of_400"
 - [Reported] For the same code, this issue only started happening on and after Early April 2021.
 
 ![Trace Comparison](https://github.com/Xingyixzhang/Support_Repro/blob/main/Py37Interm400rbMissingIssue/images/trace_comparison.png)
+
+### Resolution / Workaround
+
+**working App Service (Web App)**: [py37intermRBmissingWebApp](https://ms.portal.azure.com/#@microsoft.onmicrosoft.com/resource/subscriptions/83e0d97e-09ce-4ef1-b908-b07072b805e3/resourceGroups/eplinux/providers/Microsoft.Web/sites/py37intermRBmissingWebApp/appServices)
+
+**Creation Steps**
+- Folloing [this doc](https://docs.microsoft.com/en-us/azure/app-service/quickstart-python?tabs=bash&pivots=python-framework-flask) and changed app.py code based on the http trigger in original concerning function app.
+
+```cmd
+C:\Users\xingyz\Desktop\XingyiTest\python-docs-hello-world>az webapp up --sku B1 --name py37intermRBmissingWebApp --resource-group eplinux --subscription Xingyi-Internal-Subscription
+webapp py37intermRBmissingWebApp doesn't exist
+Creating webapp 'py37intermRBmissingWebApp' ...
+Configuring default logging for the app, if not already enabled
+Creating zip with contents of dir C:\Users\xingyz\Desktop\XingyiTest\python-docs-hello-world ...
+Getting scm site credentials for zip deployment
+Starting zip deployment. This operation can take a while to complete ...
+Deployment endpoint responded with status code 202
+You can launch the app at http://py37intermrbmissingwebapp.azurewebsites.net
+{
+  "URL": "http://py37intermrbmissingwebapp.azurewebsites.net",
+  "appserviceplan": "xingyz_asp_Linux_centralus_0",
+  "location": "centralus",
+  "name": "py37intermRBmissingWebApp",
+  "os": "Linux",
+  "resourcegroup": "eplinux",
+  "runtime_version": "python|3.7",
+  "runtime_version_detected": "-",
+  "sku": "BASIC",
+  "src_path": "C:\\Users\\xingyz\\Desktop\\XingyiTest\\python-docs-hello-world"
+}
+```
+
+- Testing with the same python program to send 2000 requests --> All Successful
+
+```py
+url = 'https://py37intermrbmissingwebapp.azurewebsites.net'
+
+headers = {
+  'Content-Type': 'application/json'
+}
+
+total_requests = 2000
+number_of_400 = 0
+
+for number in range(total_requests):
+    # request = requests.get(url)
+    response = requests.request("POST", url, headers=headers, data=gen())
+    status = response.status_code
+    if status == 400:
+        number_of_400 += 1
+
+    print(f'Response Code: {response.status_code}')
+    #print(f"Transfer Encoding: {response.headers['transfer-encoding']}\n")
+
+    # print(f'headers: {request.headers.keys()}')
+    # print(f"Transfer Encoding: {request.headers['transfer-encoding']}\n")
+    print(f'body: {response.text}')
+
+print(f"Total Requests Count: {total_requests}")
+print(f"Failed Requests Count: {number_of_400}")
+```
+![All Successful executions for Linux Python Web App]()
