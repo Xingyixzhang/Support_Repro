@@ -75,9 +75,24 @@ public static string Run(string name, ILogger log)
     return $"Hello {name}!";
 }
 ```
+### Customer Error
+**Error** ForbiddenDurableTask.AzureStorage.Storage.DurableTaskStorageException : Forbidden --> ... ... async Microsoft.WindowsAzure.Storage.**Table.CloudTable.CreateIfNotExistsAsync**(??)at ... ...
+
 ---
-### Initial Setup
+### My Repro
 - Storage Account PEs enabled on both Files and Blobs, not on Tables in the initial setup:
 ![Storage Account PEs](https://github.com/Xingyixzhang/Support_Repro/blob/main/DurableFuncPEstorTest/images/StoragePEendpoints.png)
 - Allowed Selected Network, integrated function app with the same Vnet:
 ![StorageFWsetup](https://github.com/Xingyixzhang/Support_Repro/blob/main/DurableFuncPEstorTest/images/StorageNetworkFW.png)
+- Storage Endpoints contents Before table PE enabled: (default tables exist though not visible till whitelist client IP in FW)
+![BeforeTablePEenabledBeforeClientIPWhitelist](https://github.com/Xingyixzhang/Support_Repro/blob/main/DurableFuncPEstorTest/images/BeforeTablePEenabledBeforeClientIPWhitelist.png)
+- Durable Functions run as expected once starter is called:
+![Starter Succeeded](https://github.com/Xingyixzhang/Support_Repro/blob/main/DurableFuncPEstorTest/images/StarterRunLog.png)
+![Orchestrator Succeeded](https://github.com/Xingyixzhang/Support_Repro/blob/main/DurableFuncPEstorTest/images/OrchestratorRunLog.png)
+![Activity Succeeded](https://github.com/Xingyixzhang/Support_Repro/blob/main/DurableFuncPEstorTest/images/ActivityRunLog.png)
+- Once enabled PE on Tables and allowed client IP, I can see the 2 default tables created (no access policy in place by default):
+![Default Tables Created](https://github.com/Xingyixzhang/Support_Repro/blob/main/DurableFuncPEstorTest/images/DefaultTablesCreated.png)
+
+---
+### Next Step
+Since I am not able to repro customer error, suggesting to isolate the issue (either storage account side or Function App end) by running the same app against a new storage account / task hub without restrictions to see if the issue persists.
