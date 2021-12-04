@@ -1,0 +1,1 @@
+**Concept**: Durable Functions use queues, tables, and blobs to persist orchestration and entity state, they also use blobs and blob leases to manage partitions across a distributed set of nodes.![image](https://user-images.githubusercontent.com/59896882/144718484-dfa81c1a-cf5e-45aa-8f00-0ac7ded431ac.png)
