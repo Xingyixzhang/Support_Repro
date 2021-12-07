@@ -94,5 +94,17 @@ public static string Run(string name, ILogger log)
 ![Default Tables Created](https://github.com/Xingyixzhang/Support_Repro/blob/main/DurableFuncPEstorTest/images/DefaultTablesCreated.png)
 
 ---
-### Next Step
-Since I am not able to repro customer error, suggesting to isolate the issue (either storage account side or Function App end) by running the same app against a new storage account / task hub without restrictions to see if the issue persists.
+Since I am not able to repro customer error, suggested to isolate the issue (either storage account side or Function App end) by running the same app against a new storage account / task hub without restrictions to see if the issue persists.
+
+We created a new storage account without any restrictions, found out all (blob, queue, file) endpoints are reachable but the tables endpoint. 
+- Resolved by disconnecting from VPN.
+ 
+We then deployed the app code from local VS to the new storage account, two default tables were generated and expected queues & blob containers were there.
+
+Customer does not have permission to add networking restrictions there so we looked back to the original storage account (hoping that disconnected VPN could fix the table storage access issue). 
+- We are not getting error viewing the tables section in the portal. 
+- Re-deployments are successful (verified in kudu & VS logs) but no tables no queues are generated.
+
+### Action Plan
+- Engaged Table Storage Engineer to help troubleshoot the issue with the original table storage;
+- Potential Workaround: have customer engage someone with network permission to join call and repeat the testing process to re-create the original storage account.
