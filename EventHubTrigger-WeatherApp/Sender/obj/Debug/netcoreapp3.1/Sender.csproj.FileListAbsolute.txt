@@ -1,0 +1,10 @@
+C:\Users\xingyz\Downloads\WeatherApp-master\WeatherApp-master\Sender\bin\Debug\netcoreapp3.1\Sender.deps.json
+C:\Users\xingyz\Downloads\WeatherApp-master\WeatherApp-master\Sender\bin\Debug\netcoreapp3.1\Sender.dll
+C:\Users\xingyz\Downloads\WeatherApp-master\WeatherApp-master\Sender\bin\Debug\netcoreapp3.1\Sender.pdb
+C:\Users\xingyz\Downloads\WeatherApp-master\WeatherApp-master\Sender\obj\Debug\netcoreapp3.1\Sender.csproj.AssemblyReference.cache
+C:\Users\xingyz\Downloads\WeatherApp-master\WeatherApp-master\Sender\obj\Debug\netcoreapp3.1\Sender.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\xingyz\Downloads\WeatherApp-master\WeatherApp-master\Sender\obj\Debug\netcoreapp3.1\Sender.AssemblyInfoInputs.cache
+C:\Users\xingyz\Downloads\WeatherApp-master\WeatherApp-master\Sender\obj\Debug\netcoreapp3.1\Sender.AssemblyInfo.cs
+C:\Users\xingyz\Downloads\WeatherApp-master\WeatherApp-master\Sender\obj\Debug\netcoreapp3.1\Sender.csproj.CoreCompileInputs.cache
+C:\Users\xingyz\Downloads\WeatherApp-master\WeatherApp-master\Sender\obj\Debug\netcoreapp3.1\Sender.dll
+C:\Users\xingyz\Downloads\WeatherApp-master\WeatherApp-master\Sender\obj\Debug\netcoreapp3.1\Sender.pdb
