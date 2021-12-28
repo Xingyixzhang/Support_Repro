@@ -1,6 +1,8 @@
 # WeatherApp  (Sending Event Data To Azure Event Hub)
 
-### \- Azure Resources:
+![Deploy to Azure](https://aka.ms/deploytoazurebutton)
+
+### \- Demo Azure Resources:
 - **EventHub Namespace**: [xingyiEH](https://ms.portal.azure.com/#@microsoft.onmicrosoft.com/resource/subscriptions/83e0d97e-09ce-4ef1-b908-b07072b805e3/resourceGroups/testwindow-rg/providers/Microsoft.EventHub/namespaces/xingyiEH/overview)
 - **Eventhub Entity**: [eh001tdptriggertest](https://ms.portal.azure.com/#@microsoft.onmicrosoft.com/resource/subscriptions/83e0d97e-09ce-4ef1-b908-b07072b805e3/resourceGroups/testwindow-rg/providers/Microsoft.EventHub/namespaces/xingyiEH/eventhubs/eh001tdptriggertest/processdata)
 - **Function App**: [XingyiFakeFuncApp](https://ms.portal.azure.com/#@microsoft.onmicrosoft.com/resource/subscriptions/83e0d97e-09ce-4ef1-b908-b07072b805e3/resourceGroups/testwindow-rg/providers/Microsoft.Web/sites/XingyiFakeFuncApp/appServices) | WUS | Windows .Net | F1 ASP
