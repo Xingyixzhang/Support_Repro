@@ -1,5 +1,7 @@
 # WeatherApp  (Sending Event Data To Azure Event Hub)
 
+To create a Standard Storage Account (LRS) & Application Insights & Hosting Plan (S1) & Function App & Eventhub Function: 
+
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FXingyixzhang%2FSupport_Repro%2Fmain%2FEventHubTrigger-WeatherApp%2FDeployTemplate.json)
 
 ### \- Demo Azure Resources:
