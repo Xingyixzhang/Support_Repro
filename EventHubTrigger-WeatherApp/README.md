@@ -1,6 +1,6 @@
 # WeatherApp  (Sending Event Data To Azure Event Hub)
 
-![Deploy to Azure](https://aka.ms/deploytoazurebutton)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FXingyixzhang%2FSupport_Repro%2Fmain%2FEventHubTrigger-WeatherApp%2FDeployTemplate.json)
 
 ### \- Demo Azure Resources:
 - **EventHub Namespace**: [xingyiEH](https://ms.portal.azure.com/#@microsoft.onmicrosoft.com/resource/subscriptions/83e0d97e-09ce-4ef1-b908-b07072b805e3/resourceGroups/testwindow-rg/providers/Microsoft.EventHub/namespaces/xingyiEH/overview)
