@@ -1,0 +1,1 @@
+Function App: [XingyiNet6FA](https://ms.portal.azure.com/#@microsoft.onmicrosoft.com/resource/subscriptions/83e0d97e-09ce-4ef1-b908-b07072b805e3/resourcegroups/LinuxConsumption/providers/Microsoft.Web/sites/XingyiNet6FA/appServices) | Linux .Net6 | Consumption | WUS
